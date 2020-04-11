@@ -4,7 +4,7 @@ _A top-down racing game featuring two physics modes, wonky collision system and 
 
 ![Last and Furious](Docs/GitHubBanner.png)
 
-Game by [Ivan Mojilko](https://www.adventuregamestudio.co.uk/forums/index.php?action=profile;u=8413). Art by [Jim Reed](https://www.adventuregamestudio.co.uk/forums/index.php?action=profile;u=9940). Music by [Eric Matyas](http://www.soundimage.org/) and [Kevin MacLeod](https://incompetech.com/). Ported to XAGE by D[an Alexander](https://twitter.com/clarvalon).
+Game by [Ivan Mojilko](https://www.adventuregamestudio.co.uk/forums/index.php?action=profile;u=8413). Art by [Jim Reed](https://www.adventuregamestudio.co.uk/forums/index.php?action=profile;u=9940). Music by [Eric Matyas](http://www.soundimage.org/) and [Kevin MacLeod](https://incompetech.com/). Ported to XAGE by [Dan Alexander](https://twitter.com/clarvalon).
 
 ## Prerequisites
 
@@ -46,4 +46,4 @@ OR - it is also possible to compile using the experimental CoreRT platform by fo
 
 ## License
 
-This project is licensed under the [XXX] License - see the [LICENSE](LICENSE.md) file for details
+This project is licensed under the Creative Commons v4 License - see the [LICENSE](LICENSE.md) file for details
