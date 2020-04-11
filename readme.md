@@ -46,4 +46,4 @@ OR - it is also possible to compile using the experimental CoreRT platform by fo
 
 ## License
 
-This project is licensed under the Creative Commons v4 License - see the [LICENSE](LICENSE.md) file for details
+This project is licensed under the Creative Commons v4 License - see the [License](license.md) file for details
