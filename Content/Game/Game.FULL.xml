@@ -284,6 +284,7 @@
     <OnEveryFrameAlwaysLate>late_repeatedly_execute_always</OnEveryFrameAlwaysLate>
     <OnMouseClick>on_mouse_click</OnMouseClick>
     <OnKeyPress>on_key_press</OnKeyPress>
+    <OnButtonPress />
     <LeftEdgeX>0</LeftEdgeX>
     <RightEdgeX>0</RightEdgeX>
     <TopEdgeY>0</TopEdgeY>
@@ -295,6 +296,7 @@
     <Script ScriptID="repeatedly_execute_always" ParametersSignature="None" ReturnType="void" />
     <Script ScriptID="on_key_press" ParametersSignature="KeyCode" ReturnType="void" />
     <Script ScriptID="on_mouse_click" ParametersSignature="MouseButton" ReturnType="void" />
+    <Script ScriptID="ButtonPress" ParametersSignature="Buttons" />
     <Width>0</Width>
     <Height>0</Height>
   </Room>
@@ -309,6 +311,7 @@
     <OnKeyPress>on_key_press</OnKeyPress>
     <OnLeave>room_Leave</OnLeave>
     <OnCall>on_call</OnCall>
+    <OnButtonPress>on_button_press</OnButtonPress>
     <LeftEdgeX>0</LeftEdgeX>
     <RightEdgeX>634</RightEdgeX>
     <TopEdgeY>80</TopEdgeY>
@@ -321,6 +324,7 @@
     <Script ScriptID="room_RepExec" ParametersSignature="None" />
     <Script ScriptID="on_key_press" ParametersSignature="KeyCode" ReturnType="void" />
     <Script ScriptID="on_call" ParametersSignature="Int" />
+    <Script ScriptID="on_button_press" ParametersSignature="Buttons" />
     <Polygon ScriptID="WalkableArea1" BaseLine="0" IntID="1" ScalingLevel="100" MinScalingLevel="100" MaxScalingLevel="100" UseContinuousScaling="false">
       <Enabled>true</Enabled>
       <Outers>
@@ -1258,9 +1262,11 @@
       <Script ScriptID="ChangeOption" ParametersSignature="Unknown" />
       <Script ScriptID="CancelMenu" ParametersSignature="Unknown" />
       <Script ScriptID="on_key_press" ParametersSignature="KeyCode" />
+      <Script ScriptID="on_button_press" ParametersSignature="Buttons" />
     </Scripts>
     <InstanceID>GameMenu</InstanceID>
     <OnKeyPress>on_key_press</OnKeyPress>
+    <OnButtonPress>on_button_press</OnButtonPress>
   </Module>
   <Module>
     <ScriptID>GUIUtils</ScriptID>

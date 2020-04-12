@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 using Clarvalon.XAGE.Global;
+using Microsoft.Xna.Framework.Input;
 
 namespace LastnFurious
 {
@@ -425,6 +426,20 @@ namespace LastnFurious
                 if (IsAIRace)
                     DisplayGameMenu(eMenuMain, false);
                 else 
+                    DisplayGameMenu(eMenuMainInGame, true);
+                ClaimEvent();
+            }
+        }
+
+        public override void on_button_press(Buttons button)
+        {
+            if (IsGamePaused())
+                return;
+            if (!gGameMenu.Visible && (button == Buttons.A || button == Buttons.B))
+            {
+                if (IsAIRace)
+                    DisplayGameMenu(eMenuMain, false);
+                else
                     DisplayGameMenu(eMenuMainInGame, true);
                 ClaimEvent();
             }

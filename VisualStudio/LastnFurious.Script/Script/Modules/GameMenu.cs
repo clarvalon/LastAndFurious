@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 using Clarvalon.XAGE.Global;
+using Microsoft.Xna.Framework.Input;
 
 namespace LastnFurious
 {
@@ -527,7 +528,51 @@ namespace LastnFurious
             }
         }
 
-        public void on_key_press(eKeyCode key)
+        public void on_button_press(Buttons button) 
+        {
+            if (!gGameMenu.Visible)
+                return;
+            if (MenuType == eMenuCredits)
+            {
+                SwitchToMenu(eMenuStart);
+                return;
+            }
+            if (button == Buttons.B || button == Buttons.Back)
+            {
+                CancelMenu();
+            }
+            else if (button == Buttons.DPadUp || button == Buttons.LeftThumbstickUp)
+            {
+                if (MMSelection > 0)
+                {
+                    MMSelection -= 1;
+                    UpdateSelection();
+                }
+            }
+            else if (button == Buttons.DPadDown || button == Buttons.LeftThumbstickDown)
+            {
+                if (MMSelection < MMOptionCount - 1)
+                {
+                    MMSelection += 1;
+                    UpdateSelection();
+                }
+            }
+            else if (button == Buttons.DPadLeft || button == Buttons.LeftThumbstickLeft)
+            {
+                ChangeOption(true);
+            }
+            else if (button == Buttons.DPadRight || button == Buttons.LeftThumbstickRight)
+            {
+                ChangeOption(false);
+            }
+            else if (button == Buttons.A || button == Buttons.Start)
+            {
+                ConfirmSelection();
+            }
+            ClaimEvent();
+        }
+
+        public void on_key_press(eKeyCode key) 
         {
             if (!gGameMenu.Visible)
                 return;
