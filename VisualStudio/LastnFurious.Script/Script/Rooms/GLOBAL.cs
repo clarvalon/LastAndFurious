@@ -75,6 +75,14 @@ namespace LastnFurious
 
         public override void repeatedly_execute_always()
         {
+            // If configured to use a platform service, then move to main menu if we are now finished signing in
+            if (PlatformService.Configured && !PlatformService.IsSigningIn)
+            {
+                if (GameMenu.MenuType == MenuClass.eMenuLogin && PlatformService.IsSignedIn)
+                {
+                    DisplayGameMenu(MenuClass.eMenuStart);
+                }
+            }
         }
 
         public override void on_key_press(eKeyCode keycode)

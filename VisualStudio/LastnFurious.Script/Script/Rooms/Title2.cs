@@ -22,13 +22,25 @@ namespace LastnFurious
             ds.DrawingColor = 15;
             ds.DrawString(0, system.ViewportHeight - GetFontHeight(eFontNotalot35Regular12), eFontNotalot35Regular12, GAME_VERSION);
             ds.Release();
-            DisplayGameMenu(eMenuStart);
         }
 
         public override void room_AfterFadeIn()
         {
             aCar_Theft_101.Play();
+
+            // If a platform service has been set up (i.e. xbox live) then display 'Press A' to initiate login
+            if (PlatformService.Configured)
+            {
+                DisplayGameMenu(eMenuLogin);
+            }
+            else
+            {
+                // Otherwise just show start menu
+                DisplayGameMenu(eMenuStart);
+            }
         }
+
+        
 
         public override void room_Leave()
         {
@@ -42,7 +54,7 @@ namespace LastnFurious
     public partial class GlobalBase
     {
         // Expose AGS singular #defines as C# constants (or static getters)
-        public const string GAME_VERSION = "v1.0.4";
+        public const string GAME_VERSION = "v1.0.5";
 
 
     }

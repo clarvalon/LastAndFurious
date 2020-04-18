@@ -435,7 +435,7 @@ namespace LastnFurious
         {
             if (IsGamePaused())
                 return;
-            if (!gGameMenu.Visible && (button == Buttons.A || button == Buttons.B))
+            if (!gGameMenu.Visible && (button == Buttons.Start || button == Buttons.B))
             {
                 if (IsAIRace)
                     DisplayGameMenu(eMenuMain, false);

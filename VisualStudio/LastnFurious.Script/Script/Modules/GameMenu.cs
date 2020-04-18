@@ -119,7 +119,7 @@ namespace LastnFurious
 
         public void UpdateSelection()
         {
-            if (MenuType == eMenuStart)
+            if (MenuType == eMenuStart || MenuType == eMenuLogin)
             {
                 btnMMSelector.X = DIAMOND_X;
                 btnMMSelector.Y = STARTMENU_OPTION_POS_TOP + MMSelection * STARTMENU_OPTION_SPACING + OPTION_HEIGHT / 2 - Game.SpriteHeight[btnMMSelector.Graphic] / 2;
@@ -133,7 +133,7 @@ namespace LastnFurious
 
         public void UpdateOptionValues()
         {
-            if (MenuType == eMenuStart)
+            if (MenuType == eMenuStart || MenuType == MenuClass.eMenuLogin)
                 return;
             DrawingSurface ds = SprOptions.GetDrawingSurface();
             ds.DrawingColor = COLOR_TRANSPARENT;
@@ -188,68 +188,95 @@ namespace LastnFurious
             DrawingSurface ds = SprOptions.GetDrawingSurface();
             ds.Clear();
             int y = 0;
-            switch (MenuType) 
+            switch (MenuType)
             {
-                case eMenuStart:SilverFont.DrawText("Start", ds, STARTMENU_OPTION_X, STARTMENU_OPTION_POS_TOP);
-                SilverFont.DrawText("Credits", ds, STARTMENU_OPTION_X, STARTMENU_OPTION_POS_TOP + STARTMENU_OPTION_SPACING);
-                SilverFont.DrawText("Quit", ds, STARTMENU_OPTION_X, STARTMENU_OPTION_POS_TOP + STARTMENU_OPTION_SPACING * 2);
-                MMOptionCount = 3;
-                break;
-                case eMenuMain:SilverFont.DrawText("Race", ds, OPTION_X, OPTION_POS_TOP);
-                SilverFont.DrawText("Watch Demo", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING);
-                SilverFont.DrawText("Music", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 2);
-                SilverFont.DrawText("Quit", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 3);
-                MMOptionCount = 4;
-                break;
-                case eMenuMainInGame:SilverFont.DrawText("Continue", ds, OPTION_X, OPTION_POS_TOP);
-                SilverFont.DrawText("Restart", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING);
-                SilverFont.DrawText("Music", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 2);
-                SilverFont.DrawText("Quit", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 3);
-                MMOptionCount = 4;
-                break;
-                case eMenuSetupRace:SilverFont.DrawText("Go!", ds, OPTION_X, OPTION_POS_TOP);
-                SilverFont.DrawText("Driver", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING);
-                SilverFont.DrawText("Laps", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 2);
-                SilverFont.DrawText("Opponents", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 3);
-                SilverFont.DrawText("Physics", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 4);
-                SilverFont.DrawText("Collisions", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 5);
-                SilverFont.DrawText("Back", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 6);
-                MMOptionCount = 7;
-                break;
-                case eMenuCredits:ds.DrawingColor = Game.GetColorFromRGB(11, 15, 54);
-                ds.DrawRectangle(0, 0, 640, 400);
-                y = 40;
-                PurpleItalicFont.DrawTextCentered("CODE", ds, 0, y, ds.Width);
-                y += PurpleItalicFont.Height + 10;
-                AzureItalicFont.DrawTextCentered("Crimson Wizard", ds, 0, y, ds.Width);
-                y += 40;
-                PurpleItalicFont.DrawTextCentered("ART & TECH IDEAS", ds, 0, y, ds.Width);
-                y += PurpleItalicFont.Height + 10;
-                AzureItalicFont.DrawTextCentered("Jim Reed", ds, 0, y, ds.Width);
-                y += 40;
-                PurpleItalicFont.DrawTextCentered("MUSIC", ds, 0, y, ds.Width);
-                y += PurpleItalicFont.Height + 10;
-                AzureItalicFont.DrawTextCentered("\"Car Theft 101\" by Eric Matyas", ds, 0, y, ds.Width);
-                y += AzureItalicFont.Height;
-                AzureItalicFont.DrawTextCentered("www.soundimage.org", ds, 0, y, ds.Width);
-                y += AzureItalicFont.Height + 10;
-                AzureItalicFont.DrawTextCentered("\"Welcome to the Show\" by Kevin MacLeod", ds, 0, y, ds.Width);
-                y += AzureItalicFont.Height;
-                AzureItalicFont.DrawTextCentered("incompetech.com", ds, 0, y, ds.Width);
-                y += AzureItalicFont.Height + 40;
-                PurpleItalicFont.DrawTextCentered("PORT TO C# / XAGE", ds, 0, y, ds.Width);
-                y += PurpleItalicFont.Height + 10;
-                AzureItalicFont.DrawTextCentered("Dan Alexander", ds, 0, y, ds.Width);
-                y += 40;
-                PurpleItalicFont.DrawTextCentered("Press any key to continue", ds, 0, STARTMENU_OPTION_POS_TOP + STARTMENU_OPTION_SPACING * 2, ds.Width);
-                break;
+                case eMenuLogin:
+                    if (PlatformService.IsSigningIn)
+                    {
+                        SilverFont.DrawTextCentered($"Signing into {PlatformService.ServiceName}", ds, 0, STARTMENU_OPTION_POS_TOP, 640);
+                    }
+                    else
+                    {
+                        if (System.OperatingSystem == eOSXboxUWP)
+                            SilverFont.DrawTextCentered("Press A", ds, 0, STARTMENU_OPTION_POS_TOP, 640);
+                        else
+                            SilverFont.DrawTextCentered("Press Any Key", ds, 0, STARTMENU_OPTION_POS_TOP, 640);
+                        MMOptionCount = 1;
+                    }
+                    break;
+                case eMenuStart:
+                    SilverFont.DrawText("Start", ds, STARTMENU_OPTION_X, STARTMENU_OPTION_POS_TOP);
+                    SilverFont.DrawText("Credits", ds, STARTMENU_OPTION_X, STARTMENU_OPTION_POS_TOP + STARTMENU_OPTION_SPACING);
+                    SilverFont.DrawText("Quit", ds, STARTMENU_OPTION_X, STARTMENU_OPTION_POS_TOP + STARTMENU_OPTION_SPACING * 2);
+                    MMOptionCount = 3;
+                    if (PlatformService.IsSignedIn)
+                        PurpleItalicFont.DrawTextCentered(PlatformService.GamerTag, ds, 0, STARTMENU_OPTION_POS_TOP - 20, 640);
+                    break;
+                case eMenuMain:
+                    SilverFont.DrawText("Race", ds, OPTION_X, OPTION_POS_TOP);
+                    SilverFont.DrawText("Watch Demo", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING);
+                    SilverFont.DrawText("Music", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 2);
+                    SilverFont.DrawText("Quit", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 3);
+                    MMOptionCount = 4;
+                    break;
+                case eMenuMainInGame:
+                    SilverFont.DrawText("Continue", ds, OPTION_X, OPTION_POS_TOP);
+                    SilverFont.DrawText("Restart", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING);
+                    SilverFont.DrawText("Music", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 2);
+                    SilverFont.DrawText("Quit", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 3);
+                    MMOptionCount = 4;
+                    break;
+                case eMenuSetupRace:
+                    SilverFont.DrawText("Go!", ds, OPTION_X, OPTION_POS_TOP);
+                    SilverFont.DrawText("Driver", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING);
+                    SilverFont.DrawText("Laps", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 2);
+                    SilverFont.DrawText("Opponents", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 3);
+                    SilverFont.DrawText("Physics", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 4);
+                    SilverFont.DrawText("Collisions", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 5);
+                    SilverFont.DrawText("Back", ds, OPTION_X, OPTION_POS_TOP + OPTION_SPACING * 6);
+                    MMOptionCount = 7;
+                    break;
+                case eMenuCredits:
+                    ds.DrawingColor = Game.GetColorFromRGB(11, 15, 54);
+                    ds.DrawRectangle(0, 0, 640, 400);
+                    y = 40;
+                    PurpleItalicFont.DrawTextCentered("CODE", ds, 0, y, ds.Width);
+                    y += PurpleItalicFont.Height + 10;
+                    AzureItalicFont.DrawTextCentered("Crimson Wizard", ds, 0, y, ds.Width);
+                    y += 40;
+                    PurpleItalicFont.DrawTextCentered("ART & TECH IDEAS", ds, 0, y, ds.Width);
+                    y += PurpleItalicFont.Height + 10;
+                    AzureItalicFont.DrawTextCentered("Jim Reed", ds, 0, y, ds.Width);
+                    y += 40;
+                    PurpleItalicFont.DrawTextCentered("MUSIC", ds, 0, y, ds.Width);
+                    y += PurpleItalicFont.Height + 10;
+                    AzureItalicFont.DrawTextCentered("\"Car Theft 101\" by Eric Matyas", ds, 0, y, ds.Width);
+                    y += AzureItalicFont.Height;
+                    AzureItalicFont.DrawTextCentered("www.soundimage.org", ds, 0, y, ds.Width);
+                    y += AzureItalicFont.Height + 10;
+                    AzureItalicFont.DrawTextCentered("\"Welcome to the Show\" by Kevin MacLeod", ds, 0, y, ds.Width);
+                    y += AzureItalicFont.Height;
+                    AzureItalicFont.DrawTextCentered("incompetech.com", ds, 0, y, ds.Width);
+                    y += AzureItalicFont.Height + 40;
+                    PurpleItalicFont.DrawTextCentered("PORT TO C# / XAGE", ds, 0, y, ds.Width);
+                    y += PurpleItalicFont.Height + 10;
+                    AzureItalicFont.DrawTextCentered("Dan Alexander", ds, 0, y, ds.Width);
+                    y += 40;
+                    PurpleItalicFont.DrawTextCentered("Press any key to continue", ds, 0, STARTMENU_OPTION_POS_TOP + STARTMENU_OPTION_SPACING * 2, ds.Width);
+                    break;
             }
             ds.Release();
             if (MenuType != eMenuCredits)
                 UpdateOptionValues();
             btnMenuOptions.NormalGraphic = SprOptions.Graphic;
             btnMenuOptions.Visible = true;
-            if (MenuType == eMenuStart)
+            if (MenuType == eMenuLogin)
+            {
+                btnMMSelector.Visible = false;
+                btnMMVrStrip.Visible = false;
+                gUnderlay.Visible = false;
+            }
+            else if (MenuType == eMenuStart)
             {
                 btnMMSelector.NormalGraphic = 1;
                 btnMMSelector.Visible = true;
@@ -420,9 +447,20 @@ namespace LastnFurious
             CallRoomScript(eRoom305_StartSinglePlayer);
         }
 
+        public void StartAsyncLogIn()
+        {
+            PlatformService.SignInAsync();
+            SwitchToMenu(eMenuLogin); // Redraw 
+        }
+
         public void ConfirmSelection()
         {
-            if (MenuType == eMenuStart)
+            if (MenuType == eMenuLogin)
+            {
+                StartAsyncLogIn();
+                return;
+            }
+            else if (MenuType == eMenuStart)
             {
                 switch (MMSelection) 
                 {
@@ -532,6 +570,7 @@ namespace LastnFurious
         {
             if (!gGameMenu.Visible)
                 return;
+            
             if (MenuType == eMenuCredits)
             {
                 SwitchToMenu(eMenuStart);
@@ -642,9 +681,11 @@ namespace LastnFurious
             eMenuMain = 2, 
             eMenuMainInGame = 3, 
             eMenuSetupRace = 4, 
-            eMenuCredits = 5
+            eMenuCredits = 5,
+            eMenuLogin = 6
         }
         public const MenuClass eMenuNone = MenuClass.eMenuNone;
+        public const MenuClass eMenuLogin = MenuClass.eMenuLogin;
         public const MenuClass eMenuStart = MenuClass.eMenuStart;
         public const MenuClass eMenuMain = MenuClass.eMenuMain;
         public const MenuClass eMenuMainInGame = MenuClass.eMenuMainInGame;
