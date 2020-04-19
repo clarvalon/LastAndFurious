@@ -291,3 +291,12 @@ project.lock.json
 *.feature.cs
 *.feature.xlsx.*
 *.Specs_*.html
+
+# Windows Store app package directories and files
+*AppPackages/
+*BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
