@@ -211,7 +211,7 @@ namespace LastnFurious
 
         public void LoadAIRegions()
         {
-            AIRegions = DynamicSprite.CreateFromFile("$INSTALLDIR$/Data/airegions.bmp");
+            AIRegions = DynamicSprite.CreateFromFile("$INSTALLDIR$/Data/airegions.png");
             if (AIRegions == null)
                 return;
             IniFile ini = new IniFile();

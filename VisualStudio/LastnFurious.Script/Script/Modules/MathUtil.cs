@@ -44,18 +44,6 @@ namespace LastnFurious
 
     #endregion
 
-    #region Point (AGS managed struct from .ash converted to class)
-
-    public class Point
-    {
-        // Fields
-        public int x;
-        public int y;
-
-    }
-
-    #endregion
-
     #region Static class for referencing parent class without prefixing with instance (AGS struct workaround)
 
     public static class MathUtilStaticRef

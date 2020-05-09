@@ -33,7 +33,9 @@
     <GImage IntID="20" ScriptID="spr00020" RelativeFileName="Sprites\UI\spr00020.png" />
     <GImage IntID="21" ScriptID="spr00021" RelativeFileName="Sprites\UI\spr00021.png" />
   </Images>
-  <Folders />
+  <Folders>
+    <GFolder RelativeFileName="Sprites\" />
+  </Folders>
   <GUIs>
     <GUI IntID="0" ScriptID="gDebugInfo">
       <X>0</X>
@@ -41,7 +43,7 @@
       <Z>0</Z>
       <Over>false</Over>
       <Click>false</Click>
-      <Visibility>NormalButInitiallyOff</Visibility>
+      <PopupStyle>NormalButInitiallyOff</PopupStyle>
       <PopupYPos>0</PopupYPos>
       <NeverDrawBackground>false</NeverDrawBackground>
       <Alpha>255</Alpha>
@@ -52,7 +54,7 @@
           <Z>0</Z>
           <Over>false</Over>
           <Click>false</Click>
-          <Visibility>Normal</Visibility>
+          <PopupStyle>Normal</PopupStyle>
           <PopupYPos>0</PopupYPos>
           <NeverDrawBackground>false</NeverDrawBackground>
           <Alpha>255</Alpha>
@@ -84,7 +86,7 @@
       <Z>0</Z>
       <Over>false</Over>
       <Click>false</Click>
-      <Visibility>NormalButInitiallyOff</Visibility>
+      <PopupStyle>NormalButInitiallyOff</PopupStyle>
       <PopupYPos>0</PopupYPos>
       <NeverDrawBackground>true</NeverDrawBackground>
       <Alpha>255</Alpha>
@@ -103,7 +105,7 @@
       <Z>0</Z>
       <Over>false</Over>
       <Click>false</Click>
-      <Visibility>NormalButInitiallyOff</Visibility>
+      <PopupStyle>NormalButInitiallyOff</PopupStyle>
       <PopupYPos>0</PopupYPos>
       <NeverDrawBackground>true</NeverDrawBackground>
       <Alpha>255</Alpha>
@@ -114,7 +116,7 @@
           <Z>1</Z>
           <Over>false</Over>
           <Click>false</Click>
-          <Visibility>Normal</Visibility>
+          <PopupStyle>Normal</PopupStyle>
           <PopupYPos>0</PopupYPos>
           <NeverDrawBackground>false</NeverDrawBackground>
           <Alpha>255</Alpha>
@@ -141,7 +143,7 @@
           <Z>2</Z>
           <Over>false</Over>
           <Click>false</Click>
-          <Visibility>Normal</Visibility>
+          <PopupStyle>Normal</PopupStyle>
           <PopupYPos>0</PopupYPos>
           <NeverDrawBackground>false</NeverDrawBackground>
           <Alpha>255</Alpha>
@@ -168,7 +170,7 @@
           <Z>3</Z>
           <Over>false</Over>
           <Click>false</Click>
-          <Visibility>Normal</Visibility>
+          <PopupStyle>Normal</PopupStyle>
           <PopupYPos>0</PopupYPos>
           <NeverDrawBackground>false</NeverDrawBackground>
           <Alpha>255</Alpha>
@@ -204,7 +206,7 @@
       <Z>0</Z>
       <Over>false</Over>
       <Click>false</Click>
-      <Visibility>NormalButInitiallyOff</Visibility>
+      <PopupStyle>NormalButInitiallyOff</PopupStyle>
       <PopupYPos>0</PopupYPos>
       <NeverDrawBackground>true</NeverDrawBackground>
       <Alpha>255</Alpha>
@@ -223,7 +225,7 @@
       <Z>-1</Z>
       <Over>false</Over>
       <Click>false</Click>
-      <Visibility>NormalButInitiallyOff</Visibility>
+      <PopupStyle>NormalButInitiallyOff</PopupStyle>
       <PopupYPos>0</PopupYPos>
       <NeverDrawBackground>false</NeverDrawBackground>
       <Alpha>77</Alpha>
@@ -242,7 +244,7 @@
       <Z>2</Z>
       <Over>false</Over>
       <Click>false</Click>
-      <Visibility>NormalButInitiallyOff</Visibility>
+      <PopupStyle>NormalButInitiallyOff</PopupStyle>
       <PopupYPos>0</PopupYPos>
       <NeverDrawBackground>true</NeverDrawBackground>
       <Alpha>255</Alpha>
@@ -261,7 +263,7 @@
       <Z>3</Z>
       <Over>false</Over>
       <Click>false</Click>
-      <Visibility>NormalButInitiallyOff</Visibility>
+      <PopupStyle>NormalButInitiallyOff</PopupStyle>
       <PopupYPos>0</PopupYPos>
       <NeverDrawBackground>true</NeverDrawBackground>
       <Alpha>255</Alpha>
@@ -924,6 +926,7 @@
   <Cursor ScriptID="eModeWait" Name="Wait" HotSpotX="8" HotSpotY="8" ImageID="spr00000" StandardMode="false" Enabled="true" />
   <Cursor ScriptID="eModeUsermode1" Name="Usermode1" HotSpotX="0" HotSpotY="0" ImageID="spr00000" StandardMode="false" Enabled="true" />
   <Cursor ScriptID="eModeUsermode2" Name="Usermode2" HotSpotX="0" HotSpotY="0" ImageID="spr00000" StandardMode="false" Enabled="true" />
+  <Cursor ScriptID="Cursor" HotSpotX="0" HotSpotY="0" StandardMode="false" Enabled="false" />
   <CustomPropertiesSchema>
     <Items />
   </CustomPropertiesSchema>

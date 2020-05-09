@@ -25,18 +25,18 @@ namespace LastnFurious
         // Methods
         public void CameraTargetPlayerCar(bool snap)
         {
-            Camera.TargettingAcceleration = 0.0f;
-            Camera.TargetCharacter = player;
+            Camera2.TargettingAcceleration = 0.0f;
+            Camera2.TargetCharacter = player;
             if (snap)
-                Camera.Snap();
+                Camera2.Snap();
         }
 
         public void CameraTargetRandomAICar(bool snap)
         {
-            Camera.TargettingAcceleration = 0.5f;
-            Camera.TargetCharacter = character[cAICar1.ID + Random(5)];
+            Camera2.TargettingAcceleration = 0.5f;
+            Camera2.TargetCharacter = character[cAICar1.ID + Random(5)];
             if (snap)
-                Camera.Snap();
+                Camera2.Snap();
         }
 
         public void ClearRace()

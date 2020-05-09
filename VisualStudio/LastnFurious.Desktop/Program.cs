@@ -19,7 +19,7 @@ namespace XAGE_EXE
         public static int LogLevel = 0;
         public static bool LogAsync = false;
         public static bool CatchFatalExceptions = false;
-        public static NotImplementedAction OnNotImplemented = NotImplementedAction.LogCsv;
+        public static NotImplementedAction OnNotImplemented = NotImplementedAction.Warn;
 #endif
 
         /// <summary>

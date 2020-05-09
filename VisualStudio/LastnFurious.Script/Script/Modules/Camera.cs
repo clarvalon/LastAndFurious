@@ -48,8 +48,8 @@ namespace LastnFurious
             if (eventVar == eEventEnterRoomBeforeFadein)
             {
                 CameraData.OnRoomInit();
-                Camera.TargetCharacter = player;
-                Camera.Snap();
+                Camera2.TargetCharacter = player;
+                Camera2.Snap();
             }
         }
 
@@ -442,7 +442,7 @@ namespace LastnFurious
 
     #region Camera (AGS struct from .ash converted to class)
 
-    public class Camera
+    public class Camera2
     {
         // Properties
         public static float TargettingAcceleration
@@ -732,9 +732,9 @@ namespace LastnFurious
                 if (on == FreeLookData.On)
                     return;
                 if (on)
-                    Camera.Release();
+                    Camera2.Release();
                 else 
-                    Camera.Lock();
+                    Camera2.Lock();
                 FreeLookData.On = on;
             }
         }
@@ -750,13 +750,13 @@ namespace LastnFurious
         // Methods
         public static void Pos(int x, int y)
         {
-            Camera.Release();
+            Camera2.Release();
             CameraData.SetTo(x, y);
         }
 
         public static void Pan(int x, int y, float speed, float accel, BlockingStyle block)
         {
-            Camera.Release();
+            Camera2.Release();
             CameraActionData.Do = true;
             CameraActionData.PanToX = IntToFloat(x);
             CameraActionData.PanToY = IntToFloat(y);
@@ -780,7 +780,7 @@ namespace LastnFurious
 
         public static void LinearZoomOnto(int x, int y, float next_zoom, float reach_at_zoom)
         {
-            Camera.Release();
+            Camera2.Release();
             float at_xf = CameraData.CameraX;
             float at_yf = CameraData.CameraY;
             float end_xf = IntToFloat(x);
@@ -792,7 +792,7 @@ namespace LastnFurious
             float xf = at_xf + dist_x * step_z / dist_z;
             float yf = at_yf + dist_y * step_z / dist_z;
             CameraData.SetToF(xf, yf);
-            Camera.Zoom = next_zoom;
+            Camera2.Zoom = next_zoom;
         }
 
     }
